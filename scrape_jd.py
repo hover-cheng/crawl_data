@@ -22,7 +22,7 @@ def getItemId(item, pagenum, filename):
     rep.close()
     items = bsObj.findAll('li', {'class': 'gl-item'})
     for i in items:
-        itemTitle = i.find('div', {'class': 'p-name p-name-type-2'}).em.get_text().strip('\n\t').strip()
+        itemTitle = i.find('div', {'class': 'p-name p-name-type-2'}).em.get_text().strip()
         itemUrl = i.a.attrs['href']
         itemPrice = i.i.get_text().strip()
         filename.writerow((itemTitle, "https:" + itemUrl, itemPrice))
